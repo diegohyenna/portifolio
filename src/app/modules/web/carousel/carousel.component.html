@@ -108,12 +108,9 @@
   <!-- MOBILE -->
   <div class="container-slide-mobile d-md-flex d-xl-none p-3">
     <div
-      id="slide"
       *ngFor="let item of items; let j = index"
-      class="slide card mb-3 {{ item?.status?.class }} carousel-id"
+      class="slide card mb-3 {{ item?.status?.class }} carousel-mobile"
       [ngClass]="this.projectActiveItem == j ? 'active' : ''"
-      (touchmove)="touchMove(j, $event)"
-      (touchstart)="touchStart($event)"
     >
       <div class="row no-gutters">
         <div class="col-md-12 card-image-col position-relative">
@@ -136,39 +133,70 @@
             <div class="card-title">
               {{ item?.body?.title }}
             </div>
-            <p class="card-text text-secondary">
-              {{ item?.body?.description }}
-            </p>
-            <div class="card-text text-secondary">
-              <small><strong>Algumas tecnologias usadas:</strong></small>
-              <div class="container-technologies">
-                <span
-                  *ngFor="let technology of item?.body?.technologies"
-                  class="technologies"
-                  >{{ technology }}</span
-                >
-              </div>
-            </div>
           </div>
           <div class="card-footer">
-            <a
-              *ngFor="let link of item?.links"
-              href="{{ link?.href }}"
-              target="_blank"
+            <button
               class="btn btn-primary btn-block font-weight-bold"
-              >{{ link?.title }}</a
+              data-toggle="modal"
+              data-target="#modal"
+              (click)="itemActiveModal = item"
             >
+              Ver mais
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="dots d-flex d-md-flex d-xl-none pt-2 pb-4 justify-content-center">
-    <div
-      *ngFor="let project of items; let i = index"
-      class="dot"
-      [ngClass]="this.projectActiveItem == i ? 'active' : ''"
-      (click)="moveItOnDot(i)"
-    ></div>
+</div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="modal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog dark">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          {{ itemActiveModal?.body?.title }}
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body card-content">
+        <small><strong>Descrição:</strong></small>
+        <p class="card-text text-secondary">
+          {{ itemActiveModal?.body?.description }}
+        </p>
+        <div class="card-text text-secondary">
+          <small><strong>Algumas tecnologias usadas:</strong></small>
+          <div class="container-technologies">
+            <span
+              *ngFor="let technology of itemActiveModal?.body?.technologies"
+              class="technologies"
+              >{{ technology }}</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a
+          *ngFor="let link of itemActiveModal?.links"
+          href="{{ link?.href }}"
+          target="_blank"
+          class="btn btn-primary btn-block font-weight-bold"
+          >{{ link?.title }}</a
+        >
+      </div>
+    </div>
   </div>
 </div>

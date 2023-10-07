@@ -2,7 +2,25 @@
   overflow: hidden
   width: 100%
   position: relative
-  z-index: 9999
+  z-index: 999
+
+  //firefox
+  *
+    scrollbar-width: 4px !important
+    scrollbar-color: var(--primary-color) transparent !important
+
+  //demais browsers
+  *::-webkit-scrollbar
+    width: 2px !important
+    height: 2px !important
+
+  *::-webkit-scrollbar-track
+    background-color: transparent !important
+
+  *::-webkit-scrollbar-thumb
+    background-color: var(--primary-color) !important
+    border-radius: 4px !important
+    border: none !important
 
   .loader
     position: absolute
@@ -91,15 +109,15 @@
         color: var(--primary-color)
         font-size: 1.4rem
         justify-content: center
-        clip-path: polygon(60% 0, 77% 100%, 0% 100%, 0% 0%)
+        clip-path: polygon(60% -1%, 77% 100%, 0% 100%, 0% 0%)
 
-        & p
+        p
           font-weight: 200
 
-        & .container-tech
+        .container-tech
           margin-bottom: 24px
 
-        & .project-item-technology
+        .project-item-technology
           color: var(--white)
           background-color: var(--secondary-color)
           padding: 6px 12px
@@ -110,81 +128,68 @@
           display: inline-block
           margin-right: 10px
 
-        & a
+        .btn
           background-color: var(--primary-color)
-          color: var(--white)
-          font-weight: 500
-
-        & a:hover
-          background-color: var(--primary-color-dark)
           color: var(--white)
           font-weight: 700
 
+        .btn:hover
+          background-color: var(--primary-color-dark)
+          color: var(--light)
+
   .container-slide-mobile
     display: flex
-    scroll-snap-type: x proximity
-    overflow-x: auto
-    // align-items: start
-    justify-content: space-between
-    flex-flow: row nowrap
-    scroll-behavior: smooth
+    overflow-x: scroll
 
     .slide
       background: var(--bg-card-secondary)
       width: 100%
-      margin-left: 21px
-      overflow-x: auto
       flex: none
-      scroll-snap-align: center
 
-      &.active
-        z-index: 9999
+.card-body
+  padding-bottom: 0
 
-      .card-body
-        padding-bottom: 0
+  .card-title
+    overflow: auto
+    text-overflow: ellipsis
+    white-space: nowrap
 
-        //DEIXA OS ITENS DE TECNOLOGIAS LINEAR COM UMA BARRA DE ROLAGEM HORIZONTAL MAS ATRAPALHA SLIDE DOS ITENS
-      .card-text
-        .container-technologies
-          display: flex
-          flex-wrap: wrap
-          flex-direction: row
-            // overflow-y: hidden
-            // flex-direction: column
-            // height: 52px
-            // justify-content: center
-            // align-content: start
+.container-technologies
+  display: flex
+  flex-wrap: wrap
+  flex-direction: row
+  margin-bottom: 24px
 
-          .technologies
-            color: var(--white)
-            background-color: var(--secondary-color)
-            padding: 4px 10px
-            border-radius: 20px
-            font-size: 0.8rem
-            font-weight: 500
-            margin-top: 6px
-            display: inline
-            margin-right: 10px
-            align-self: center
-            height: auto
+  .technologies
+    color: var(--white)
+    background-color: var(--secondary-color)
+    padding: 4px 10px
+    border-radius: 20px
+    font-size: 0.8rem
+    font-weight: 500
+    margin-top: 6px
+    display: inline
+    margin-right: 10px
+    align-self: center
+    height: auto
 
-  .dots
-    position: relative
-    bottom: 0
-    left: 50%
-    transform: translateX(-50%)
+.dots
+  position: relative
+  bottom: 0
+  left: 50%
+  transform: translateX(-50%)
 
-    .dot
-      width: 16px
-      height: 16px
-      border-radius: 100%
-      margin-left: 8px
-      background-color: var(--bg-card)
-      cursor: pointer
+  .dot
+    width: 16px
+    height: 16px
+    border-radius: 100%
+    margin-left: 8px
+    background-color: var(--bg-card)
+    cursor: pointer
 
-      &.active
-        z-index: 9999
-        background-color: var(--primary-color)
+    &.active
+      z-index: 9991
+      background-color: var(--primary-color)
 
 .project-bg
   display: flex
@@ -208,3 +213,24 @@
   &:focus
     border-color: var(--secondary-color)
     box-shadow: 0 0 0 0.2rem var(--secondary-color)
+
+.modal
+  z-index: 9999
+
+  .modal-content
+    background-color: var(--bg-card)
+
+  .modal-header
+    border: none
+    padding-bottom: 0
+
+    .modal-title
+      color: var(--primary-color)
+      font-size: 1.4rem
+      font-weight: 700
+      display: flex
+      justify-content: space-between
+
+  .modal-footer
+    padding-top: 0
+    border: none

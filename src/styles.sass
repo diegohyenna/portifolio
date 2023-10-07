@@ -78,7 +78,13 @@
   --bg-card-secondary: #49167944
   --bg-card-ternary: #ddd
 
-  * > .text-white
+  * > .text-white, #header .links a:hover
+    color: var(--bg-card) !important
+
+  * > .text-white:hover
+    color: var(--light) !important
+
+  * > .technologies, * > .project-item-technology
     color: var(--light) !important
 
   #header, #header p, #header .line, #header .link, #about .text-secondary, #about .subtitle, .text-secondary, #projects, #footer, #footer .title a, hr
@@ -90,7 +96,7 @@
 @mixin dark-orange
   --primary-color: #d15f1d
   --primary-color-dark: #353535
-  --primary-color-ultra-dark: #0f0e0e
+  --primary-color-ultra-dark: #0f0e0eF
   --secondary-color: #0361c5
   --ternary-color: #022246
   --secondary-color-dark: #0a1422
@@ -100,12 +106,19 @@
   --bg-card: #2E2532
   --bg-card-secondary: var(--bg-card)
   --bg-card-ternary: #ddd
+  --bg-secondary-color: #6d3210
 
   * > .text-white
     color: var(--light) !important
 
-    * > .technologies, * > .project-item-technology, * > .project-items .btn
-      color: var(--light) !important
+  * > .technologies, * > .project-item-technology, * > .project-items .btn
+    color: var(--light) !important
+
+  * > .project-items .btn:hover, #about .btn:hover, #header .btn-primary:hover
+    background-color: var(--bg-secondary-color) !important
+
+  #about .card-footer a:hover, #header .links a:hover
+    color: var(--bg-secondary-color) !important
 
   #header, #header p, #header .line, #header .link, #about .text-secondary, #about .subtitle, .text-secondary, #projects, #footer, #footer .title a, hr
     color: var(--light) !important

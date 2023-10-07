@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 
 import { IProject } from '../projects/projects.interface';
 
@@ -12,7 +6,6 @@ import { IProject } from '../projects/projects.interface';
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.sass'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CarouselComponent implements OnInit {
   @Input('items') items: any;
@@ -26,8 +19,10 @@ export class CarouselComponent implements OnInit {
   @ViewChild('selectCategories') selectCategories: any;
   @ViewChild('selectTechnologies') selectTechnologies: any;
 
-  private touchXStart = 0;
-  private touchYStart = 0;
+  itemActiveModal: any;
+
+  // private touchXStart = 0;
+  // private touchYStart = 0;
 
   constructor() {}
 
@@ -83,39 +78,39 @@ export class CarouselComponent implements OnInit {
     this.projectActiveItem = index;
   }
 
-  touchStart(evt: any): void {
-    this.touchXStart = evt.touches[0].clientX;
-    this.touchYStart = evt.touches[0].clientY;
-  }
+  // touchStart(evt: any): void {
+  //   this.touchXStart = evt.touches[0].clientX;
+  //   this.touchYStart = evt.touches[0].clientY;
+  // }
 
-  touchMove(index: number, evt: any) {
-    this.leftRightTouchMove(index, evt);
-  }
+  // touchMove(index: number, evt: any) {
+  //   this.leftRightTouchMove(index, evt);
+  // }
 
-  leftRightTouchMove(index: number, evt: any) {
-    if (!this.touchXStart && !this.touchYStart) return;
+  // leftRightTouchMove(index: number, evt: any) {
+  //   if (!this.touchXStart && !this.touchYStart) return;
 
-    let xUp = evt.touches[0].clientX;
-    let yUp = evt.touches[0].clientY;
+  //   let xUp = evt.touches[0].clientX;
+  //   let yUp = evt.touches[0].clientY;
 
-    let xDiff = this.touchXStart - xUp;
-    let yDiff = this.touchYStart - yUp;
+  //   let xDiff = this.touchXStart - xUp;
+  //   let yDiff = this.touchYStart - yUp;
 
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {
-      if (xDiff > 0) {
-        this.onRight(index);
-      } else {
-        this.onLeft(index);
-      }
-      this.touchXStart = this.touchYStart = 0;
-    }
-  }
+  //   if (Math.abs(xDiff) > Math.abs(yDiff)) {
+  //     if (xDiff > 0) {
+  //       this.onRight(index);
+  //     } else {
+  //       this.onLeft(index);
+  //     }
+  //     this.touchXStart = this.touchYStart = 0;
+  //   }
+  // }
 
-  moveItOnDot(index: number) {
-    const containerMobile = document.querySelector('.container-slide-mobile');
+  // moveItOnDot(index: number) {
+  //   const containerMobile = document.querySelector('.container-slide-mobile');
 
-    containerMobile?.scrollTo({ left: document.body.clientWidth * index + 1 });
+  //   containerMobile?.scrollTo({ left: document.body.clientWidth * index + 1 });
 
-    this.projectActiveItem = index;
-  }
+  //   this.projectActiveItem = index;
+  // }
 }

@@ -1,0 +1,26 @@
+{
+  "terminal.explorerKind": "integrated",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    },
+    "Cmder": {
+      "path": ["Z:\\Archives\\Dev\\cmder\\Cmder.exe"],
+      "icon": "terminal-cmd"
+    }
+  },
+  "terminal.integrated.defaultLocation": "view",
+  "terminal.integrated.defaultProfile.windows": "Cmder"
+}

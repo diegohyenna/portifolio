@@ -30,13 +30,6 @@
                 {
                   "component": "LinkComponent",
                   "class": "btn btn-primary mb-2 ml-2",
-                  "href": "https://webcurriculo.firebaseapp.com",
-                  "content": "Web Currículo",
-                  "target": "_blank"
-                },
-                {
-                  "component": "LinkComponent",
-                  "class": "btn btn-primary mb-2 ml-2",
                   "href": "/login",
                   "content": "Visite a área administrativa",
                   "target": "_self"

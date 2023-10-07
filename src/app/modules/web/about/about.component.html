@@ -7,7 +7,10 @@
         <h1 class="title about-title text-white d-sm-block d-md-none pt-5 pb-2">
           <strong>Sobre mim</strong>
         </h1>
-        <div class="card d-flex justify-content wow bounceInLeft">
+        <div
+          class="card d-flex justify-content wow bounceInLeft"
+          data-wow-delay=".5s"
+        >
           <div class="row no-gutters">
             <div class="bg-animate position-relative">
               <span
@@ -72,7 +75,10 @@
               ></span>
             </div>
 
-            <div class="card-content col-12">
+            <div
+              class="card-content col-12 wow bounceInLeft"
+              data-wow-delay=".7s"
+            >
               <div class="card-body">
                 <h3 class="title">{{ this.profile.name }}</h3>
                 <h5 class="subtitle mb-5">{{ this.profile.occupation }}</h5>
@@ -102,6 +108,7 @@
       </div>
       <div
         class="col-sm-12 col-md-7 col-lg-7 px-5 pb-5 about-content wow bounceInLeft"
+        data-wow-delay=".5s"
       >
         <h1 class="title text-white pt-5 pb-2 d-none d-md-block">
           <strong>Sobre mim</strong>
@@ -110,16 +117,16 @@
           <h5 class="text-secondary d-sm-block d-md-none">
             <strong>Descrição</strong>
           </h5>
-          <p class="text-secondary" data-wow-delay=".1s">
+          <p class="text-secondary">
             {{ this.content.description }}
             <span class="dgsite-span"
               >DG Site - DGSite - diego guimarães martins</span
             >
           </p>
-          <h5 class="text-secondary pt-2" data-wow-delay=".1s">
+          <h5 class="text-secondary pt-2 wow bounceInLeft" data-wow-delay=".7s">
             <strong>Algumas tecnologias conhecidas</strong>
           </h5>
-          <p class="text-secondary wow bounceInLeft" data-wow-delay=".2s">
+          <p class="text-secondary wow bounceInLeft" data-wow-delay=".7s">
             <span
               *ngFor="let technology of this.content?.technologies"
               class="technologies"
