@@ -5,7 +5,7 @@ import { IAlert } from './alert.interface';
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.sass'],
+  styleUrls: ['./alert.component.scss'],
 })
 export class AlertComponent implements OnInit {
   alert?: IAlert;

@@ -32,6 +32,8 @@ na pasta raiz:
 - rode `docker-compose up`
 - acesse [o projeto local aqui](http://localhost:4200)
 
+- `docker-compose build` para reescrever o build do projeto
+
 Para acessar o projeto no container via terminal rode:
 
 - `docker exec -it container-portifolio sh`

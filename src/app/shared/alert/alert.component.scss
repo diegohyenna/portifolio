@@ -1,0 +1,18 @@
+.alert {
+  position: absolute;
+  top: 0;
+  right: 15px;
+
+  &.success {
+    background-color: lime;
+  }
+  &.warning {
+    background-color: orange;
+  }
+  &.info {
+    background-color: blue;
+  }
+  &.danger {
+    background-color: tomato;
+  }
+}

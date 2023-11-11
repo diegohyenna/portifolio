@@ -1,0 +1,202 @@
+<div class="filter-container wow slideInLeft">
+  <h6 class="filter-title col-12 text-secondary">Filtros</h6>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="form-group col-md-6">
+        <select
+          #selectCategories
+          class="form-select form-select-sm form-control form-control-sm"
+          aria-label=".form-select-sm example"
+          (change)="onChangeCategory($event)"
+        >
+          <optgroup label="Opção principal">
+            <option selected [value]="'description'">
+              Todas as categorias
+            </option>
+          </optgroup>
+          <optgroup label="Outras opções">
+            <option
+              *ngFor="let category of categories"
+              [value]="category"
+              class="select-options"
+            >
+              {{ category }}
+            </option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="form-group col-md-6">
+        <select
+          #selectTechnologies
+          class="form-select form-select-sm form-control form-control-sm"
+          aria-label=".form-select-sm example"
+          (change)="onChangeTechnology($event)"
+        >
+          <optgroup label="Opção principal">
+            <option selected [value]="'description'">
+              Todas as tecnologias
+            </option>
+          </optgroup>
+          <optgroup label="Outras opções">
+            <option
+              *ngFor="let technology of technologies"
+              [value]="technology"
+              class="select-options"
+            >
+              {{ technology }}
+            </option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-slide">
+  <!-- DESKTOP -->
+  <div class="d-md-none d-lg-block">
+    <div
+      *ngFor="let item of items; let i = index"
+      [style]="'background-image: url(' + item?.image?.bg + ')'"
+      class="project-content project-bg d-none d-xl-flex position-relative carousel-id wow slideInLeft"
+      [ngClass]="this.projectActiveItem == i ? 'active' : ''"
+    >
+      <div class="buttons">
+        <div class="project-number">{{ i + 1 }}</div>
+        <div>
+          <div class="prev" (click)="this.onLeft(i)">
+            {{ "\<" }}
+          </div>
+          <div class="next" (click)="this.onRight(i)">
+            {{ ">" }}
+          </div>
+        </div>
+      </div>
+      <div class="d-none d-xl-flex flex-column project-items">
+        <div class="card-img-desktop-container" data-wow-delay=".1s">
+          <img
+            src="{{ item?.image?.src }}"
+            class="card-img-desktop"
+            alt="{{ item.image.alt }}"
+          />
+        </div>
+
+        <h1 class="project-item-title">
+          {{ item?.body?.title }}
+        </h1>
+        <p class="project-item-description text-secondary" data-wow-delay=".2s">
+          {{ item?.body?.description }}
+        </p>
+        <div class="container-tech">
+          <span
+            *ngFor="let technology of item?.body?.technologies"
+            class="project-item-technology"
+            >{{ technology }}</span
+          >
+        </div>
+        <a
+          *ngFor="let link of item.links"
+          href="{{ link.href }}"
+          target="_blank"
+          class="btn btn-block"
+          >{{ link.title }}</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE -->
+  <div class="container-slide-mobile d-md-flex d-xl-none p-3">
+    <div
+      *ngFor="let item of items; let j = index"
+      class="slide card mb-3 {{ item?.status?.class }} carousel-mobile"
+      [ngClass]="this.projectActiveItem == j ? 'active' : ''"
+    >
+      <div class="row no-gutters">
+        <div class="col-md-12 card-image-col position-relative">
+          <div class="card-image-mobile-container">
+            <img
+              src="{{ item?.image?.src }}"
+              class="card-img-mobile"
+              alt="{{ item?.image?.alt }}"
+            />
+          </div>
+          <div class="card-status badge badge-{{ item?.status?.class }}">
+            {{ item?.status?.title }}
+          </div>
+          <div class="card-project-number-container">
+            <div class="card-project-number">{{ j + 1 }}</div>
+          </div>
+        </div>
+        <div class="col-md-12 card-content">
+          <div class="card-body">
+            <div class="card-title">
+              {{ item?.body?.title }}
+            </div>
+          </div>
+          <div class="card-footer">
+            <button
+              class="btn btn-primary btn-block font-weight-bold"
+              data-toggle="modal"
+              data-target="#modal"
+              (click)="itemActiveModal = item"
+            >
+              Ver mais
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="modal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog dark">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          {{ itemActiveModal?.body?.title }}
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body card-content">
+        <small><strong>Descrição:</strong></small>
+        <p class="card-text text-secondary">
+          {{ itemActiveModal?.body?.description }}
+        </p>
+        <div class="card-text text-secondary">
+          <small><strong>Algumas tecnologias usadas:</strong></small>
+          <div class="container-technologies">
+            <span
+              *ngFor="let technology of itemActiveModal?.body?.technologies"
+              class="technologies"
+              >{{ technology }}</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a
+          *ngFor="let link of itemActiveModal?.links"
+          href="{{ link?.href }}"
+          target="_blank"
+          class="btn btn-primary btn-block font-weight-bold"
+          >{{ link?.title }}</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

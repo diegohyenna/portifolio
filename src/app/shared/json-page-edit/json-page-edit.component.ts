@@ -4,7 +4,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-json-page-edit',
   templateUrl: './json-page-edit.component.html',
-  styleUrls: ['./json-page-edit.component.sass'],
+  styleUrls: ['./json-page-edit.component.scss'],
 })
 export class JsonPageEditComponent implements OnInit {
   @Input() title!: string;

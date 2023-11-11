@@ -12,7 +12,7 @@ import JSONEditor from 'jsoneditor';
 @Component({
   selector: 'app-json-editor',
   templateUrl: './json-editor.component.html',
-  styleUrls: ['./json-editor.component.sass'],
+  styleUrls: ['./json-editor.component.scss'],
 })
 export class JsonEditorComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() json: any;

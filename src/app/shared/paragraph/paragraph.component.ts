@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-paragraph',
   templateUrl: './paragraph.component.html',
-  styleUrls: ['./paragraph.component.sass'],
+  styleUrls: ['./paragraph.component.scss'],
 })
 export class ParagraphComponent implements OnInit {
   @Input() data: any;

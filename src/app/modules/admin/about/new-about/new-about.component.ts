@@ -7,7 +7,7 @@ import { AboutService } from '../about.service';
 @Component({
   selector: 'app-new-about',
   templateUrl: './new-about.component.html',
-  styleUrls: ['./new-about.component.sass'],
+  styleUrls: ['./new-about.component.scss'],
 })
 export class NewAboutComponent implements OnInit {
   constructor(

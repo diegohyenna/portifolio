@@ -1,0 +1,29 @@
+<v2-app-sidenav [showLeft]="true">
+  <app-tree-root [open]="true" summaryTitle="Informações pessoais" boxLeft>
+    <app-tree-item
+      iconColor="Yellow"
+      summaryTitle="bio"
+      [detailsPages]="detailsPagesBio"
+    >
+    </app-tree-item>
+    <app-tree-item
+      iconColor="Purple"
+      summaryTitle="interesses"
+      [detailsPages]="detailsPagesInterests"
+    >
+    </app-tree-item>
+    <app-tree-item
+      iconColor="Green"
+      summaryTitle="educacao"
+      [detailsPages]="detailsPagesEducation"
+    >
+    </app-tree-item>
+  </app-tree-root>
+
+  <div boxRight>
+    <div class="Nav">{{ navTitle || " " }}<i class="fas fa-times"></i></div>
+    <div class="Container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</v2-app-sidenav>

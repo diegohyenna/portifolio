@@ -6,11 +6,11 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ApiDgsiteService } from '../services/api-dgsite.service';
+import { V1ApiService } from '../services/api-v1.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private API: ApiDgsiteService) {}
+  constructor(private API: V1ApiService) {}
 
   intercept(
     request: HttpRequest<unknown>,

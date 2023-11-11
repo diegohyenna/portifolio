@@ -1,0 +1,54 @@
+@import "/src/styles.scss";
+@import "../../theme/theme.scss";
+
+.Footer {
+  display: flex;
+  padding: 0 24px;
+  border-bottom: solid;
+  border-top: solid;
+  border-width: 1px;
+  border-color: $dark-color;
+  list-style: none;
+  margin-bottom: 0;
+  z-index: 9;
+
+  .brand {
+    display: flex;
+    align-items: center;
+    padding: 16px 0 16px 0;
+    min-width: 130px;
+    color: $dark-secondary-color;
+    @include Font(16px);
+  }
+
+  .pages{
+    display: flex;
+    width: 100%;
+    .page {
+      padding: 16px;
+      border-left: 1px solid $dark-color;
+
+      .link {
+        text-align: center;
+        color: #607b96;
+        @include Font(24px);
+      }
+    }
+    & > :last-child {
+      border-right: 1px solid $dark-color;
+    }
+  }
+
+  @media (max-width: 790px) {
+    & .brand{
+      min-width: 110px;
+      @include Font(14px);
+    }
+    & .brand, & .link {
+
+      @include Font(14px);
+    }
+
+
+  }
+}

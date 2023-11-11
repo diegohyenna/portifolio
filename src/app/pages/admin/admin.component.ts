@@ -8,7 +8,7 @@ import { LoginService } from '../login/login.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.sass'],
+  styleUrls: ['./admin.component.scss'],
   animations: [slider],
 })
 export class AdminComponent implements OnInit, AfterContentInit {

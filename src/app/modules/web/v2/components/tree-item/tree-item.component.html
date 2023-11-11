@@ -1,0 +1,31 @@
+<details class="Detail" [open]="open" #detailsElement>
+  <summary class="DetailSummary" [class]="iconColor">
+    <i
+      class="Default mr-3"
+      [ngClass]="open ? 'fas fa-chevron-down' : 'fas fa-chevron-right'"
+    ></i>
+    <i
+      [class]="iconColor"
+      [ngClass]="open ? 'fas fa-folder-open' : 'fas fa-folder'"
+    ></i>
+    <span class="Title"> {{ " " + summaryTitle }}</span>
+  </summary>
+  <div class="DetailBody" [ngStyle]="{ 'display: none': !open }">
+    <div class="File" *ngFor="let detailPage of detailsPages">
+      <a
+        *ngIf="detailPage.url; else link"
+        [routerLink]="[detailPage.url]"
+        [routerLinkActive]="'Active' || detailPage.activeClass"
+        ><i class="fas fa-file-code"></i> {{ detailPage.title }}</a
+      >
+      <ng-template #link>
+        <a
+          [href]="detailPage.link?.href"
+          [target]="detailPage.link?.target"
+          [routerLinkActive]="'Active' || detailPage.activeClass"
+          ><i class="fas fa-file-code"></i> {{ detailPage.title }}</a
+        >
+      </ng-template>
+    </div>
+  </div>
+</details>

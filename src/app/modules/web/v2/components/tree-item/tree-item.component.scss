@@ -1,0 +1,59 @@
+@import "../../theme/theme.scss";
+
+.Detail {
+  summary {
+    list-style-type: "";
+    user-select: none;
+  }
+
+  details[open] summary {
+    list-style-type: "";
+    user-select: none;
+  }
+
+  // summary::marker{
+  //   color: $dark-secondary-color;
+  // }
+  .DetailSummary {
+    .Title {
+      color: $dark-secondary-color;
+    }
+    &.Active > * {
+      color: $light-color !important;
+    }
+  }
+
+  .DetailBody {
+    margin-left: 30px;
+
+    .File,
+    .File * {
+      color: $dark-secondary-color;
+    }
+
+    .File a.Active,
+    .File a.Active * {
+      color: $light-color !important;
+    }
+  }
+}
+
+.Default {
+  color: $dark-secondary-color;
+}
+
+.Red {
+  color: var(--red);
+}
+
+.Green {
+  color: var(--green);
+}
+
+.Purple {
+  color: $primary-color;
+}
+
+.Yellow {
+  color: var(--orange);
+}

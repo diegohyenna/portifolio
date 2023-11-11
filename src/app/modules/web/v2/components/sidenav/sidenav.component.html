@@ -1,0 +1,8 @@
+<div class="Container" [ngClass]="showLeft ? 'showLeft' : 'hideLeft'">
+  <div class="Left" *ngIf="showLeft">
+    <ng-content select="[boxLeft]"></ng-content>
+  </div>
+  <div class="Right">
+    <ng-content select="[boxRight]"></ng-content>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+#footer {
+  width: 100%;
+  color: var(--white);
+  background-image: url("/assets/img/overlay3.svg"),
+    linear-gradient(
+      45deg,
+      var(--primary-color),
+      var(--primary-color-dark),
+      var(--secondary-color),
+      var(--secondary-color-dark)
+    );
+  background-size: cover;
+
+  .row {
+    padding: 50px 0;
+
+    .header {
+      .title > a {
+        font-weight: 600;
+        color: var(--white);
+      }
+      p {
+        font-size: 0.8rem;
+      }
+    }
+    hr {
+      margin: 40px 0;
+      border-top: 1px solid var(--white);
+    }
+    .btn {
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    .btn-outline-light:hover {
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+  }
+}

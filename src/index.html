@@ -25,10 +25,6 @@
       content="Frontend | Angular | Ionic | HTML5 | CSS3 | JavaScript | React | NodeJS | Firebase | MongoDB | SQL"
       property="og:description"
     />
-    <!-- <meta
-      name="image"
-      content="https://media-exp1.licdn.com/dms/image/C4E03AQEkVc65VwlvuQ/profile-displayphoto-shrink_200_200/0?e=1599091200&v=beta&t=6K05evgHM-qil7UWZ2AszgFTx0QgwB9_4PrW5sGO9yM"
-    /> -->
     <meta name="image" content="assets/img/eu.jpg" />
     <meta itemprop="image" content="assets/img/eu.jpg" />
     <meta property="og:image" content="assets/img/eu.jpg" />
@@ -59,6 +55,11 @@
 
     <link
       href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -206,6 +207,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="assets/js/jquery.min.js"></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
@@ -231,28 +233,7 @@
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
-
-    <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyAtQSer6abZozwDTDUIPxro13IG7ua74E8",
-        authDomain: "cms-api-curriculo.firebaseapp.com",
-        databaseURL: "https://cms-api-curriculo.firebaseio.com",
-        projectId: "cms-api-curriculo",
-        storageBucket: "cms-api-curriculo.appspot.com",
-        messagingSenderId: "212348249722",
-        appId: "1:212348249722:web:c09e7c6d07150cdc83fdc3",
-        measurementId: "G-T2JP8JXRNQ",
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-    </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-171539083-1"
-    ></script>
+    <!--  -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -262,23 +243,29 @@
 
       gtag("config", "UA-171539083-1");
     </script>
+
     <!-- loading das paginas -->
     <script>
-      window.onload = () => {
+      window.onload = (res) => {
+        const body = document.querySelector("body");
+        const splashScreen = document.querySelector("#splashScreen");
+
         const elements = {
-          home: [
+          v1: [
             "#splashScreen",
             "#header",
             "#about",
-            ".carousel-id",
+            ".carousel-mobile",
             "#footer",
           ],
+          v2: ["#splashScreen", ".Page"],
+          "v2/about": ["#splashScreen", ".Page"],
+          "v2/contact": ["#splashScreen", ".Page"],
+          "v2/projects": ["#splashScreen", ".Page"],
+          "v2/hello": ["#splashScreen", ".Page"],
           login: ["#login"],
           admin: [".navbar"],
         };
-
-        const body = document.querySelector("body");
-        const splashScreen = document.querySelector("#splashScreen");
 
         const url = (document.URL || document.documentURI).replace(
           document.baseURI,

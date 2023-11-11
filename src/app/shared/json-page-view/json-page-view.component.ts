@@ -12,7 +12,7 @@ import {
 @Component({
   selector: 'app-json-page-view',
   templateUrl: './json-page-view.component.html',
-  styleUrls: ['./json-page-view.component.sass'],
+  styleUrls: ['./json-page-view.component.scss'],
 })
 export class JsonPageViewComponent implements OnInit, OnChanges {
   @Input() title!: string;

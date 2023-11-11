@@ -1,0 +1,18 @@
+@import "../../theme/theme.scss";
+
+.Summary {
+  padding: 12px;
+  border: 1px solid $dark-color;
+  border-left: none;
+  border-top: none;
+  width: 260px;
+
+  @media (max-width: 830px) {
+    width: 100%;
+  }
+}
+
+.Body {
+  padding: 12px;
+  border-bottom: 1px solid $dark-color;
+}

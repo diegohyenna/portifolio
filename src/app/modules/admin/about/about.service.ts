@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
+import { V1ApiService } from 'src/app/services/api-v1.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AboutService {
-  constructor(private API: ApiDgsiteService) {}
+  constructor(private API: V1ApiService) {}
 
   getAbout() {
     return this.API.selectAll('about');

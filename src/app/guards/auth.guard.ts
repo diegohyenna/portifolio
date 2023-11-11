@@ -11,7 +11,6 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginService } from '../pages/login/login.service';
-import { ApiDgsiteService } from '../services/api-dgsite.service';
 import { AlertService } from '../shared/alert/alert.service';
 
 @Injectable({

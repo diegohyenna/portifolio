@@ -1,0 +1,42 @@
+<nav>
+  <ul class="Menu">
+    <li class="Brand">{{ header?.brand }}</li>
+    <a class="Pages" [routerLinkActive]="'Active'" *ngFor="let page of pages">
+      <div class="Page" [routerLink]="page?.href">
+        <li class="Link">{{ page?.title }}</li>
+      </div>
+    </a>
+    <div class="Tools">
+      <div class="Hamburguer">
+        <input
+          type="checkbox"
+          id="checkbox-menu"
+          (input)="OpenCloseMenu($event.target)"
+        />
+        <label for="checkbox-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <div class="PagesMenu" [ngClass]="openMenu ? 'Show' : ''">
+          <div
+            class="PageItem"
+            [routerLinkActive]="'Active'"
+            *ngFor="let page of pages"
+            [routerLink]="page?.href"
+            (click)="closeMenu()"
+          >
+            {{ page?.title }}
+          </div>
+        </div>
+      </div>
+
+      <div class="Theme">
+        <label class="color-01" (click)="setTheme('theme1')"></label>
+        <label class="color-02" (click)="setTheme('theme2')"></label>
+        <label class="color-03" (click)="setTheme('theme3')"></label>
+      </div>
+    </div>
+  </ul>
+</nav>

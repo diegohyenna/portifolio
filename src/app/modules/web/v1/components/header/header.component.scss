@@ -1,0 +1,32 @@
+.theme-choose-container {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 9;
+
+  .button {
+    width: 28px;
+    height: 28px;
+    border-radius: 48px;
+    border: 1px solid white;
+    margin-right: 8px;
+    padding: 0;
+
+    &.theme-blue-orange {
+      background: linear-gradient(7deg, orange, blue);
+    }
+    &.theme-aqua-blueviolet {
+      background: linear-gradient(7deg, blueviolet, aqua);
+    }
+  }
+}
+#svg-header {
+  fill: var(--bg-card);
+}
+.dark-mode-switch {
+  position: absolute;
+  top: 15px;
+  right: 4px;
+  display: block;
+  width: 145px;
+}

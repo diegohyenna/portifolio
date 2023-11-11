@@ -1,0 +1,199 @@
+@import "/src/styles.scss";
+@import "../../theme/theme.scss";
+
+.Menu {
+  display: flex;
+  border-bottom: 1px solid $dark-color;
+  list-style: none;
+  padding: 0 24px;
+  position: relative;
+  z-index: 99;
+  margin: 0;
+
+  .Brand {
+    padding: 16px 16px 16px 0;
+    color: $dark-secondary-color;
+    width: calc(260px - 24px);
+    @include Font(16px);
+  }
+
+  .Tools {
+    display: flex;
+    height: 100%;
+    align-self: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+
+    .Hamburguer {
+      display: none;
+      align-self: center;
+      padding: 16px;
+      border-left: 1px solid $dark-color;
+      border-right: 1px solid $dark-color;
+
+      #checkbox-menu {
+        position: absolute;
+        opacity: 0;
+      }
+
+      label {
+        cursor: pointer;
+        position: relative;
+        display: block;
+        height: 22px;
+        width: 30px;
+        margin: 0;
+      }
+
+      label span {
+        position: absolute;
+        display: block;
+        height: 4px;
+        width: 100%;
+        border-radius: 30px;
+        background: $dark-secondary-color;
+        transition: 0.25s ease-in-out;
+      }
+
+      label span:nth-child(1) {
+        top: 0;
+      }
+
+      label span:nth-child(2) {
+        top: 8px;
+      }
+
+      label span:nth-child(3) {
+        top: 16px;
+      }
+
+      #checkbox-menu:checked + label span:nth-child(1) {
+        transform: rotate(-45deg);
+        top: 8px;
+      }
+
+      #checkbox-menu:checked + label span:nth-child(2) {
+        opacity: 0;
+      }
+
+      #checkbox-menu:checked + label span:nth-child(3) {
+        transform: rotate(45deg);
+        top: 8px;
+      }
+
+      .PagesMenu {
+        visibility: hidden;
+        position: absolute;
+        top: 100%;
+        background: $bg-primary;
+        padding: 0 24px 24px 24px;
+        right: 0;
+        left: 0;
+        width: 100vw;
+        border-top: 1px solid $dark-color;
+        border-bottom: 1px solid $dark-color;
+
+        .PageItem {
+          padding: 12px;
+          color: $light-color;
+          border-bottom: 1px solid $dark-secondary-color;
+          cursor: pointer;
+
+          &.Active {
+            color: $secondary-color;
+            border-bottom: 3px solid $secondary-color;
+          }
+        }
+      }
+    }
+
+    .Theme {
+      display: flex;
+      flex-direction: row;
+      align-self: center;
+      padding: 16px 0 16px 16px;
+      gap: 8px;
+
+      label {
+        cursor: pointer;
+        position: relative;
+        display: block;
+        height: 14px;
+        width: 14px;
+        border-radius: 100%;
+        margin: 0;
+      }
+
+      label.color-01 {
+        background: var(--green);
+        transition: 0.25s ease-in-out;
+      }
+
+      label.color-02 {
+        background: var(--yellow);
+        transition: 0.25s ease-in-out;
+      }
+
+      label.color-03 {
+        background: var(--red);
+        transition: 0.25s ease-in-out;
+      }
+    }
+  }
+
+  .Pages {
+    border-left: 1px solid $dark-color;
+    cursor: pointer;
+
+    &:hover,
+    &.Active {
+      border-bottom: 3px solid $secondary-color;
+    }
+
+    &:hover .page .link,
+    &.Active .page .link {
+      color: $light-color;
+    }
+
+    .Page {
+      padding: 16px 24px;
+
+      .Link {
+        color: $dark-secondary-color;
+        text-decoration: none;
+
+        @include Font(16px);
+      }
+    }
+  }
+
+  @media (max-width: 830px) {
+    justify-content: space-between;
+
+    .Pages {
+      display: none;
+    }
+
+    .Tools {
+      .Hamburguer {
+        display: block;
+      }
+    }
+
+    .PagesMenu.Show {
+      visibility: visible !important;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .Tools {
+      .Theme {
+        display: none;
+      }
+    }
+  }
+
+  & > :has(+ .Tools) {
+    border-right: 1px solid $dark-color;
+  }
+}

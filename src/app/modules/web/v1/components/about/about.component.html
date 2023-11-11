@@ -1,0 +1,149 @@
+<div class="position-relative">
+  <section id="about" class="position-relative container-fluid">
+    <div *ngIf="this.profile && this.content" class="row">
+      <div
+        class="d-flex flex-direction-row justify-content-center text-center col-sm-12 col-md-5 col-lg-5 about-profile"
+      >
+        <h1 class="title about-title text-white d-sm-block d-md-none pt-5 pb-2">
+          <strong>Sobre mim</strong>
+        </h1>
+        <div
+          class="card d-flex justify-content wow bounceInLeft"
+          data-wow-delay=".1s"
+        >
+          <div class="row no-gutters">
+            <div class="bg-animate position-relative">
+              <span
+                class="square-in"
+                style="
+                  --velocity: '2s';
+                  --tam: '5px';
+                  --top: '20px';
+                  --left: 10px;
+                "
+              ></span>
+              <span
+                class="square-in"
+                style="
+                  --velocity: '1.8s';
+                  --tam: '55px';
+                  --top: '35px';
+                  --left: 30px;
+                "
+              ></span>
+              <span
+                class="square-in"
+                style="
+                  --velocity: '1.9s';
+                  --tam: '35px';
+                  --top: '30px';
+                  --left: 75px;
+                "
+              ></span>
+              <img
+                src="../../../../assets/img/eu.jpg"
+                class="card-img col-12"
+                alt="minha foto"
+                style="z-index: 2"
+              />
+              <span
+                class="square-out"
+                style="
+                  --velocity: '2s';
+                  --tam: '5px';
+                  --bottom: '0px';
+                  --right: 15px;
+                "
+              ></span>
+              <span
+                class="square-out"
+                style="
+                  --velocity: '1.8s';
+                  --tam: '55px';
+                  --bottom: '15px';
+                  --right: 30px;
+                "
+              ></span>
+              <span
+                class="square-out"
+                style="
+                  --velocity: '1.9s';
+                  --tam: '35px';
+                  --bottom: '5px';
+                  --right: 75px;
+                "
+              ></span>
+            </div>
+
+            <div
+              class="card-content col-12 wow bounceInLeft"
+              data-wow-delay=".7s"
+            >
+              <div class="card-body">
+                <h3 class="title">{{ this.profile.name }}</h3>
+                <h5 class="subtitle mb-5">{{ this.profile.occupation }}</h5>
+                <p
+                  *ngFor="let contact of this.profile?.contacts"
+                  class="text-secondary"
+                >
+                  <i [class]="contact.icon"></i> {{ contact.content }}
+                </p>
+                <hr class="mt-4 mb-0" />
+              </div>
+              <div class="card-footer d-flex pt-1 justify-content-center">
+                <span *ngFor="let link of this.profile?.links">
+                  <a
+                    href="{{ link.href }}"
+                    target="{{ link.target }}"
+                    attr.data-toggle="{{ link['data-toggle'] }}"
+                    attr.data-placement="{{ link['data-placement'] }}"
+                    title="{{ link.title }}"
+                    ><i class="{{ link.icon }}"></i>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-sm-12 col-md-7 col-lg-7 px-5 pb-5 about-content wow bounceInLeft"
+        data-wow-delay=".5s"
+      >
+        <h1 class="title text-white pt-5 pb-2 d-none d-md-block">
+          <strong>Sobre mim</strong>
+        </h1>
+        <div class="body">
+          <h5 class="text-secondary d-sm-block d-md-none">
+            <strong>Descrição</strong>
+          </h5>
+          <p class="text-secondary">
+            {{ this.content.description }}
+            <span class="dgsite-span"
+              >DG Site - DGSite - diego guimarães martins</span
+            >
+          </p>
+          <h5 class="text-secondary pt-2 wow bounceInLeft" data-wow-delay=".7s">
+            <strong>Algumas tecnologias conhecidas</strong>
+          </h5>
+          <p class="text-secondary wow bounceInLeft" data-wow-delay=".7s">
+            <span
+              *ngFor="let technology of this.content?.technologies"
+              class="technologies"
+              >{{ technology.title }}
+              <span class="percent">{{ technology.percent }}</span></span
+            >
+          </p>
+
+          <a
+            *ngFor="let link of this.content?.links"
+            class="btn btn-block font-weight-bold text-white"
+            target="{{ link.target }}"
+            href="{{ link.href }}"
+            >{{ link.title }}<i class="{{ link.icon }}"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

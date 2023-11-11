@@ -1,0 +1,129 @@
+@import "/src/styles.scss";
+@import "../../theme/theme.scss";
+
+:root {
+  width: 100% !important;
+}
+
+.Container {
+  position: relative;
+  padding: 24px;
+  color: $light-color;
+  width: 100%;
+  height: 100%;
+
+  .Hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 960px;
+    margin: 0 auto;
+    height: 100%;
+    z-index: 1;
+    flex-wrap: wrap;
+    gap: 48px;
+
+    .Left {
+      grid-area: left;
+      position: relative;
+      flex-basis: 60%;
+      z-index: 2;
+
+      .Title {
+        color: $light-secondary-color;
+        @include Font(18px, normal, 300);
+      }
+
+      .Name {
+        color: $light-secondary-color;
+        @include Font(62px);
+      }
+
+      .Subtitle {
+        color: $primary-color;
+        @include Font(32px);
+      }
+
+      .Description {
+        color: $dark-secondary-color;
+        @include Font(16px, normal, 500);
+      }
+    }
+
+    .Right {
+      grid-area: right;
+      flex-basis: 20%;
+      z-index: 2;
+
+      &.Profile {
+        .Image {
+          width: 320px;
+          border-radius: 100%;
+          border: 20px solid rgba(0,0,0,0.2);
+        }
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .Left {
+        flex-basis: 50%;
+      }
+    }
+
+    @media (max-width: 790px) {
+      justify-content: unset;
+
+      .Left {
+        flex-basis: 100%;
+        text-align: center;
+
+        .Title {
+          @include Font(14px, normal, 300);
+        }
+
+        .Name {
+          @include Font(32px);
+        }
+
+        .Subtitle {
+          @include Font(20px);
+        }
+
+        .Description {
+          @include Font(14px, normal, 500);
+        }
+      }
+
+      .Right {
+        align-items: center;
+        justify-content: center;
+        &.Profile {
+          display: none;
+          .Image {
+            width: 260px;
+          }
+        }
+      }
+    }
+
+    .Vector01 {
+      width: 650px;
+      position: absolute;
+      top: -100px;
+      right: -70px;
+      transform: rotate(-94.305deg);
+      filter: blur(50px);
+      z-index: 0;
+    }
+    .Vector02 {
+      width: 600px;
+      position: absolute;
+      bottom: -100px;
+      right: -200px;
+      transform: rotate(13.508deg);
+      filter: blur(50px);
+      z-index: 0;
+    }
+  }
+}

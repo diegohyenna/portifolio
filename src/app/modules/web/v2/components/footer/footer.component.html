@@ -1,0 +1,12 @@
+<nav>
+  <ul class="Footer">
+    <li class="brand">Contate-me</li>
+    <div class="pages">
+      <div class="page" *ngFor="let ft of footer?.contacts">
+        <a class="link" [href]="ft?.href" [target]="ft?.target">
+          <i [ngClass]="ft?.icon"></i
+        ></a>
+      </div>
+    </div>
+  </ul>
+</nav>

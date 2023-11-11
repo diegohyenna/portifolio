@@ -1,0 +1,35 @@
+@import "../../theme/theme.scss";
+
+.Container {
+  display: grid;
+  grid-template-areas: "left right";
+  grid-template-columns: 260px 1fr;
+  align-items: stretch;
+  height: 100%;
+
+  .Left {
+    grid-area: left;
+    border-right: 1px solid $dark-color;
+  }
+
+  .Right {
+    grid-area: right;
+  }
+
+  &.hideLeft {
+    grid-template-areas: "right" !important;
+    grid-template-rows: 1fr;
+    grid-template-columns: unset;
+  }
+
+  @media (max-width: 830px) {
+    grid-template:
+      "left"
+      "right";
+    grid-template-rows: auto 1fr;
+
+    .Left {
+      width: 100%;
+    }
+  }
+}

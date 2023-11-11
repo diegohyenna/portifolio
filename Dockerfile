@@ -1,8 +1,9 @@
 ## Para rodar com docker-compose ****
 
-FROM node:16.14.2 as build
+FROM node:18 as build
 WORKDIR '/app'
 
+RUN npm install -g @angular/cli@14.1.3
 COPY package.json .
 RUN npm install
 
